@@ -1,5 +1,7 @@
 var $ken = $('.ken'),
     $guile = $('.guile'),
+    $ground_limit_left = 0,
+    $ground_limit_right = 370,
     $kenPos, $guilePos, $fireballPos;
 
 // isColision loop
@@ -10,12 +12,22 @@ setInterval(function(){
     $guilePos = $guile.offset();
     //console.log('$guile:',$guilePos);
     //console.log('interval:',$guilePos.left - $kenPos.left);
+    
+    if (isKenAtGuileRight()) {
+        $ken.addClass('flip'); 
+    } else {
+        $ken.removeClass('flip'); 
+    }
 }, 250);
 
 var isColision = function(){ 
     return ($guilePos.left - $kenPos.left <= 75 && $guilePos.left - $kenPos.left >= -75) ? true : false;
 };
 
+var isKenAtGuileRight = function(){ 
+    return $guilePos.left < $kenPos.left;
+};
+    
 
 // moves
 // ----------------------------------- \
@@ -135,10 +147,16 @@ var kneel = function(){
     $ken.addClass('kneel');
 };
 var walkLeft = function(){
-    $ken.addClass('walk').css({ marginLeft:'-=10px' });
+    console.log($ken.css('marginLeft'));
+    
+    if (parseInt($ken.css('marginLeft').replace("px", "")) > $ground_limit_left) {
+        $ken.addClass('walk').css({ marginLeft:'-=10px' });
+    }
 };
 var walkRight = function(){
-    $ken.addClass('walk').css({ marginLeft:'+=10px' });
+    if (parseInt($ken.css('marginLeft').replace("px", "")) < $ground_limit_right) {
+        $ken.addClass('walk').css({ marginLeft:'+=10px' });
+    }
 };
 
 
