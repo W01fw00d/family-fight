@@ -5,12 +5,14 @@ soundManager.setup({
 });
 
 soundManager.onready(function() {
-    
     var backgroundMusic = soundManager.createSound({
         id:'music',
         url:'audio/musics/Guile.mp3'
     });
+    
     backgroundMusic.play({ volume:70 });
+    backgroundMusic.pause();
+    
     $('.pause').on('click', function(){
         var $this = $(this);
         if ($this.hasClass('play')) {
