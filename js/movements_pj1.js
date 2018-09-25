@@ -62,12 +62,12 @@ var hadoken = function(){
         $fireball.appendTo($pj1.selector);
 
         var isFireballColision = function(){ 
-            return ($pj2.position.left - $fireballPos.left <= 75 && $pj2.position.left - $fireballPos.left >= -75);
+            return ($pj2.position.left - $pj1.fireball_position.left <= 75 && $pj2.position.left - $pj1.fireball_position.left >= -75);
         };
 
         var explodeIfColision = setInterval(function(){
 
-            $fireballPos = $fireball.offset();
+            $pj1.fireball_position = $fireball.offset();
 
             if (isFireballColision()) {
                 $fireball.addClass('explode').removeClass('moving').css('marginLeft','+=22px');
@@ -121,13 +121,13 @@ var kneel = function(){
 };
 
 var walkLeft = function(){
-    if (parseInt($pj1.selector.css('marginLeft').replace("px", "")) > $ground_limit_left) {
+    if (parseInt($pj1.selector.css('marginLeft').replace("px", "")) > $battle_ground.limit_left) {
         $pj1.selector.addClass('walk').css({ marginLeft:'-=10px' });
     }
 };
 
 var walkRight = function(){
-    if (parseInt($pj1.selector.css('marginLeft').replace("px", "")) < $ground_limit_right) {
+    if (parseInt($pj1.selector.css('marginLeft').replace("px", "")) < $battle_ground.limit_right) {
         $pj1.selector.addClass('walk').css({ marginLeft:'+=10px' });
     }
 };

@@ -6,5 +6,6 @@ class Pj {
     this.name = name;
     this.ph = ph;
     this.width = 75;
+    this.fireball_position = 0;
   }
 }
