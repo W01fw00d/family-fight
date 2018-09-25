@@ -5,8 +5,8 @@ var punch = function(){
     soundManager.play('huh1');
     if (isColision()) {
         soundManager.play('hit1');
-        $guile.addClass('hit1');
-        setTimeout(function() { $guile.removeClass('hit1'); }, 500);
+        $pj2.selector.addClass('hit1');
+        setTimeout(function() { $pj2.selector.removeClass('hit1'); }, 500);
     }
     setTimeout(function() { $pj1.selector.removeClass('punch'); }, 150);
 };
@@ -16,8 +16,8 @@ var kick = function(){
     soundManager.play('huh3');
     if (isColision()) { 
         soundManager.play('hit1');
-        $guile.addClass('hit2');
-        setTimeout(function() { $guile.removeClass('hit2'); }, 500);
+        $pj2.selector.addClass('hit2');
+        setTimeout(function() { $pj2.selector.removeClass('hit2'); }, 500);
     }
     setTimeout(function() { $pj1.selector.removeClass('kick'); }, 500);
 };
@@ -27,8 +27,8 @@ var rkick = function(){
     soundManager.play('huh2');
     if (isColision()) { 
         soundManager.play('hit1');
-        $guile.addClass('hit2');
-        setTimeout(function() { $guile.removeClass('hit2'); }, 500);
+        $pj2.selector.addClass('hit2');
+        setTimeout(function() { $pj2.selector.removeClass('hit2'); }, 500);
     }
     setTimeout(function() { $pj1.selector.removeClass('reversekick'); }, 500); 
 };
@@ -62,7 +62,7 @@ var hadoken = function(){
         $fireball.appendTo($pj1.selector);
 
         var isFireballColision = function(){ 
-            return ($guilePos.left - $fireballPos.left <= 75 && $guilePos.left - $fireballPos.left >= -75);
+            return ($pj2.position.left - $fireballPos.left <= 75 && $pj2.position.left - $fireballPos.left >= -75);
         };
 
         var explodeIfColision = setInterval(function(){
@@ -74,8 +74,8 @@ var hadoken = function(){
                 clearInterval(explodeIfColision);
                 soundManager.play('hit5');
                 setTimeout(function() { $fireball.remove(); }, 500); 
-                $guile.addClass('hit2');
-                setTimeout(function() { $guile.removeClass('hit2'); }, 500);
+                $pj2.selector.addClass('hit2');
+                setTimeout(function() { $pj2.selector.removeClass('hit2'); }, 500);
             }
 
         }, 50);

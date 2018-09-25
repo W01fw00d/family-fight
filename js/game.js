@@ -1,16 +1,14 @@
 var $pj1 = new Pj($('.ken'), 'ken', 100),
-    $pj2_life_value = 100,
-    $guile = $('.guile'),
+    $pj2 = new Pj($('.guile'), 'guile', 100),
     $ground_limit_left = 0,
     $ground_limit_right = 370,
     $fireballPos;
-console.log($pj1);
 
 // isColision loop
 // ----------------------------------- \
 setInterval(function(){
     $pj1.position = $pj1.selector.offset();
-    $guilePos = $guile.offset();
+    $pj2.position = $pj2.selector.offset();
     
     if (isKenAtGuileRight()) {
         $pj1.selector.addClass('flip'); 
@@ -20,9 +18,9 @@ setInterval(function(){
 }, 250);
 
 var isColision = function(){
-    return $guilePos.left - $pj1.position.left <= 75 && $guilePos.left - $pj1.position.left >= -75;
+    return $pj2.position.left - $pj1.position.left <= $pj2.width && $pj2.position.left - $pj1.position.left >= -$pj2.width;
 };
 
 var isKenAtGuileRight = function(){ 
-    return $guilePos.left < $pj1.position.left;
+    return $pj2.position.left < $pj1.position.left;
 };
