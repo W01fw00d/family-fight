@@ -1,9 +1,10 @@
-// moves
-// ----------------------------------- \
 var punch = function(){
     $pj1.selector.addClass('punch'); 
     soundManager.play('huh1');
     if (isColision()) {
+        $pj2.ph -= 10;
+        console.log($pj2.ph);
+
         soundManager.play('hit1');
         $pj2.selector.addClass('hit1');
         setTimeout(function() { $pj2.selector.removeClass('hit1'); }, 500);
