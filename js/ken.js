@@ -8,10 +8,7 @@ var $ken = $('.ken'),
 // ----------------------------------- \
 setInterval(function(){
     $kenPos = $ken.offset();
-    //console.log('$ken     :',$kenPos);
     $guilePos = $guile.offset();
-    //console.log('$guile:',$guilePos);
-    //console.log('interval:',$guilePos.left - $kenPos.left);
     
     if (isKenAtGuileRight()) {
         $ken.addClass('flip'); 
@@ -41,6 +38,7 @@ var punch = function(){
     }
     setTimeout(function() { $ken.removeClass('punch'); }, 150);
 };
+
 var kick = function(){
     $ken.addClass('kick');
     soundManager.play('huh3');
@@ -51,6 +49,7 @@ var kick = function(){
     }
     setTimeout(function() { $ken.removeClass('kick'); }, 500);
 };
+
 var rkick = function(){
     $ken.addClass('reversekick');
     soundManager.play('huh2');
@@ -61,11 +60,11 @@ var rkick = function(){
     }
     setTimeout(function() { $ken.removeClass('reversekick'); }, 500); 
 };
+
 var tatsumaki = function(){
     soundManager.play('tatsumaki');
     $ken.addClass('tatsumaki');
     if (isColision()) { 
-        console.log('hit tatsumaki')
         soundManager.play('hit2',{
             multiShotEvents: true, 
             onfinish:function() {
@@ -76,6 +75,7 @@ var tatsumaki = function(){
     setTimeout(function() { $ken.addClass('down'); }, 1500); 
     setTimeout(function() { $ken.removeClass('tatsumaki down'); }, 2000);
 };
+
 var hadoken = function(){
     $ken.addClass('hadoken'); 
     soundManager.play('hado', {
@@ -96,7 +96,6 @@ var hadoken = function(){
         var explodeIfColision = setInterval(function(){
 
             $fireballPos = $fireball.offset();
-            //console.log('fireballInterval:',$fireballPos.left);
 
             if (isFireballColision()) {
                 $fireball.addClass('explode').removeClass('moving').css('marginLeft','+=22px');
@@ -118,6 +117,7 @@ var hadoken = function(){
 
     }, (250));
 };
+
 var shoryuken = function(){
     soundManager.play('shoryu', {
         multiShotEvents: true, 
@@ -126,7 +126,6 @@ var shoryuken = function(){
         }
     });
     if (isColision()) { 
-        console.log('hit shoryuken')
         soundManager.play('hit2',{
             multiShotEvents: true, 
             onfinish:function() {
@@ -138,21 +137,23 @@ var shoryuken = function(){
     setTimeout(function() { $ken.addClass('down'); }, 500); 
     setTimeout(function() { $ken.removeClass('shoryuken down'); }, 1000);
 };
+
 var jump = function(){
     $ken.addClass('jump');
     setTimeout(function() { $ken.addClass('down'); }, 500); 
     setTimeout(function() { $ken.removeClass('jump down'); }, 1000); 
 };
+
 var kneel = function(){
     $ken.addClass('kneel');
 };
+
 var walkLeft = function(){
-    console.log($ken.css('marginLeft'));
-    
     if (parseInt($ken.css('marginLeft').replace("px", "")) > $ground_limit_left) {
         $ken.addClass('walk').css({ marginLeft:'-=10px' });
     }
 };
+
 var walkRight = function(){
     if (parseInt($ken.css('marginLeft').replace("px", "")) < $ground_limit_right) {
         $ken.addClass('walk').css({ marginLeft:'+=10px' });
@@ -295,8 +296,4 @@ $(document).on('keydown keyup', function(e) {
     else { // keyup
         $ken.removeClass('walk kneel');
     }
-
-    console.log(e.keyCode);
-
-    //return false;
 });
