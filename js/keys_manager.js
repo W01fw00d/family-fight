@@ -1,5 +1,3 @@
-// on keydown events
-// ----------------------------------- 
 $(document).on('keydown keyup', function(e) {
     if (e.type == 'keydown') { 
         
