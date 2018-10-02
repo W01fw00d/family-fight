@@ -21,6 +21,11 @@ body { background-color:black; margin:0; }
     
     &.play { background-position:left bottom; }
 }
+
+.pj2_hp_bar {
+    float: right;
+}
+
 .commands { 
     margin-top:20px; padding:20px; width:1024px; margin:0 auto; background-color:#fff; 
     font-family:"Bangers", cursive, Arial; font-size:20px; 

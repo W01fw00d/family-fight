@@ -1,5 +1,5 @@
-var $pj1 = new Pj($('.ken'), 'ken', 100),
-    $pj2 = new Pj($('.guile'), 'guile', 100),
+var $pj1 = new Pj($('.ken'), document.getElementById('pj2_hp_bar'), 'ken', 100),
+    $pj2 = new Pj($('.guile'), document.getElementById('pj2_hp_bar'), 'guile', 100, ),
     $battle_ground = new BattleGround();
 
 setInterval(function(){

@@ -64,6 +64,9 @@ body {
   .pause.play {
     background-position: left bottom; }
 
+.pj2_hp_bar {
+  float: right; }
+
 .commands {
   margin-top: 20px;
   padding: 20px;
