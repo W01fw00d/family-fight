@@ -66,15 +66,21 @@ soundManager.onready(function() {
     // ------------------------------- /
     soundManager.createSound({
         id:'huh1',
-        url:'audio/huhs/huh1.wav'
+//        url:'audio/huhs/huh1.wav',
+        url:'audio/huhs/pum_loky.wav'
     });
+//    soundManager.createSound({
+//        id:'huh1_2',
+//        url:'audio/hits/pum_gabo.wav'
+//    });
+    
     soundManager.createSound({
         id:'huh2',
         url:'audio/huhs/huh2.wav'
     });
     soundManager.createSound({
         id:'huh3',
-        url:'audio/huhs/huh3.wav'
+        url:'audio/huhs/pum_gabo.wav'
     });
 
     // hits

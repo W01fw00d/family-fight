@@ -1,10 +1,15 @@
 var punch = function(){
     $pj1.selector.addClass('punch'); 
+    
+//    var sounds = ['huh1', 'huh1_2'];
+//    var sound = sounds[getRandomArbitrary(0, 2)]
+//    soundManager.play(sound);
+    
     soundManager.play('huh1');
-    if (isColision()) {
-        $pj2.ph -= 10;
-        console.log($pj2.ph);
 
+    if (isColision()) {
+        $pj2.setHp($pj2.hp - 10);
+                
         soundManager.play('hit1');
         $pj2.selector.addClass('hit1');
         setTimeout(function() { $pj2.selector.removeClass('hit1'); }, 500);
@@ -132,3 +137,7 @@ var walkRight = function(){
         $pj1.selector.addClass('walk').css({ marginLeft:'+=10px' });
     }
 };
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
